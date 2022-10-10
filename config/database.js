@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect(process.env.DATABASE_URL);
 
 const db = mongoose.connection;
 
