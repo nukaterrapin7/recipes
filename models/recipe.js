@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
     name: String,
-    ingredients: String,
-    directions: String
+    ingredients: [],
+    directions: []
+}, {
+    timestamps: true
 });
+
+module.exports = mongoose.model('Recipe', recipeSchema);
