@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Cooking Collective' });
 });
 
 router.get('/auth/google', passport.authenticate('google',{
@@ -23,7 +23,6 @@ router.get('/logout', function(req, res, next) {
     if(err) return next(err)
     res.redirect('/recipes')
   });
-  res.redirect('recipes')
 });
 
 module.exports = router;
