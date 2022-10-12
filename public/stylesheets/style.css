@@ -3,7 +3,7 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #5edc88;
+  color: rgba(153, 43, 36, 1)
 }
 
 body {
@@ -11,6 +11,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr;
+  background-image: url(../images/kitchen.jpeg);
   grid-template-areas: 
     "nav"
     "main"
@@ -18,7 +19,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #046279;
+  background-color: rgba(70, 18, 101, 1);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -29,6 +30,7 @@ nav > div {
   width: 150px;
   object-fit: contain;
   margin-right: auto;
+  text-decoration: none;
 }
 
 body > main {
@@ -36,7 +38,6 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(../images/kitchen.jpeg);
   padding: 20px;
   overflow-y: scroll;
 }
@@ -46,7 +47,7 @@ body > main h1:first-child {
 }
 
 nav > a {
-  margin: 20px;
+  margin: 10px;
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
