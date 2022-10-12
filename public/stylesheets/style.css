@@ -3,42 +3,16 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  /* color: rgb(212, 47, 36) */
 }
 
 body {
   margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
-}
-body > main {
-  /* background-image: url(../images/kitchen.jpeg); */
+  height: 100vh;  
+  background-image: url(../images/kitchen.jpeg);
   /* opacity: .4; */
 }
 
-body > nav {
-  grid-area: nav;
-  background-color: rgba(70, 18, 101, 1);
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px 0 30px;  
-  color: red
-}
-
-nav > title {
-  width: 150px;
-  object-fit: contain;
-  margin-right: auto;
-  text-decoration: none;
-  color: blue;
-}
-
-body > main {
+main {
   grid-area: main;
   display: flex;
   flex-direction: column;
@@ -47,26 +21,29 @@ body > main {
   overflow-y: scroll;
 }
 
-body > main h1:first-child {
-  margin-bottom: 50px;
+nav {  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;  
+  color: silver;
+  height: 10vh;  
+  background-color: rgba(70, 18, 101, 1);
 }
 
-nav > a {
-  margin: 10px;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  color: silver
+nav div {
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+}
+nav > div:first-child{
+  margin-left: auto;
 }
 
-nav > a:hover:not(.active) {
-  color: white;
-  background-color: #424748;
-}
-
-nav > a.active {
-  color: white;
-  cursor: default;
+nav > li:hover:not(.active) {
+  color: silver;
+  background-color: red;
 }
 
 #new-form {
@@ -84,18 +61,18 @@ nav > a.active {
 #new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
-  margin-left: auto;
+  align-items: center;
 }
 
-table {
+/* table {
   font-size: 14px;
   color: black;
-}
+} */
 
-table thead th {
+/* table thead th {
   padding: 5px;
   border-bottom: 2px solid #424748;
-}
+} */
 
 table td {
   padding: 10px;

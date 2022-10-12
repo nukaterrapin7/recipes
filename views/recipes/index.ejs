@@ -10,6 +10,11 @@
         </tr>
       </thead>
       <tbody>
+        <% recipes.forEach(function(r) { %>
+          <tr>
+            <td><a href="/recipes/<%= r.id %>"><%= r.name %></a></td>
+          </tr>
+        <% }); %>
         <% let total = 0 %>
         <% recipes.forEach(function(r) { %>
           <tr>
@@ -23,12 +28,7 @@
             </td>              
           </tr>
         <% }); %>
-        <% recipes.forEach(function(r) { %>
-          <tr>
-            <td><%= r.name %></td>
-            <td><a href="/recipes/<%= r.id %>"> SHOW RECIPE</a></td>
-          </tr>
-        <% }); %>
+        
       </tbody>
     </table>
   <% } else { %>

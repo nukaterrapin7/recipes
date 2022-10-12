@@ -9,18 +9,29 @@
 </head>
 <body>
   <nav>
-    <!-- <div>     -->
+    <div>
       <a href="/" class="title"<%- title === 'Cooking Collective' ? 'class="active"' : '' %>>Cooking Collective</a>
-    <!-- </div> -->
-    <a href="/recipes" <%- title === 'All Recipes' ? 'class="active"' : '' %>>All Recipes</a>
+    </div>
+    <div>
+      <a href="/recipes" <%- title === 'All Recipes' ? 'class="active"' : '' %>>All Recipes</a>
+    </div>
     <p>|</p>
     <% if (user) { %>
-      <a href="/recipes/new" <%- title === 'Add Recipe' ? 'class="active"' : '' %>>Add Recipe</a>
+      <div>
+        <a href="/recipes/new" <%- title === 'Add Recipe' ? 'class="active"' : '' %>>Add Recipe</a>
+      </div>
       <p>|</p>
-      <a href="/logout">Log Out</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>
+      <div>
+        <a href="/logout">Log Out</a>
+      </div>
+        <% } else { %>
+          <div>
+            <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+          </div>
+          <% } %>
+        </li>
+      </ul>
+    </div>
   </nav>
   <main> 
     <h1><%= title %></h1>
