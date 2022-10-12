@@ -7,9 +7,13 @@
 
 body {
   margin: 0;
-  height: 100vh;  
-  background-image: url(../images/kitchen.jpeg);
-  /* opacity: .4; */
+  height: 100vh;   
+  /* background-color: rgba(0,0,0, 0.4); */
+}
+
+.bg-img {
+    background-image: url(../images/kitchen.jpeg);
+    /* opacity: .4; */
 }
 
 main {
