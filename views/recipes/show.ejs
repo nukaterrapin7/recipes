@@ -28,7 +28,7 @@
 <% if (recipe.comments.length) { %>
     <table>
         <thead>
-          <tr>
+          <tr> 
             <th>User</th>
             <th>Comment</th>
             <th>Rating</th>
@@ -36,18 +36,17 @@
         </thead>
         <tbody>
           <% let total = 0 %>
-          <% recipe.comments.forEach(function(r) { %>
-            <% total += r.rating %>
+          <% recipe.comments.forEach(function(c) { %>
             <tr>
-              <td class="comment-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %>
-                <% if (user && user._id.equals(r.user)) { %>
-                  <form action="/comments/<%= r._id %>?_method=DELETE" method="POST">
+              <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
+                <% if (user && user._id.equals(c.user)) { %>
+                  <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">Delete <br>Comment</button>
                   </form>
                 <% } %>
               </td>              
-              <td><%= r.content %></td>
-              <td><%= r.rating %></td>
+              <td><%= c.content %></td>
+              <td><%= c.rating %></td>
             </tr>
           <% }); %>
         </tbody>

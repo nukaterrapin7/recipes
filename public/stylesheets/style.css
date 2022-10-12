@@ -16,8 +16,8 @@ body {
     "main"
 }
 body > main {
-  background-image: url(../images/kitchen.jpeg);
-  opacity: .4;
+  /* background-image: url(../images/kitchen.jpeg); */
+  /* opacity: .4; */
 }
 
 body > nav {

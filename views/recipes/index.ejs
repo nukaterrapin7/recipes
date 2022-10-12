@@ -1,23 +1,38 @@
 <%- include('../partials/header') %>
 
-<table id="list">
-  <thead>
-    <tr>
-      <th>Recipe Name</th>
-      <!-- <th>Ingredients</th>
-      <th>Directions</th> -->
-    </tr>
-  </thead>
-  <tbody>
-    <% recipes.forEach(function(r) { %>
-      <tr>
-        <td><%= r.name %></td>
-        <!-- <td><%= r.ingredients %></td>
-        <td><%= r.directions %></td> -->
-        <td><a href="/recipes/<%= r.id %>"> SHOW RECIPE</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
+<% if (recipes.length) { %>
+  <table id="list">
+    <thead>
+        <tr>
+          <th>Recipe Name:</th>
+          <th>Posted By:</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %>
+        <% recipes.forEach(function(r) { %>
+          <tr>
+            <td class="recipe-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer">
+              <%= r.userName %>
+              <% if (user && user._id.equals(r.user)) { %>
+                <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+                  <button type="submit">Delete <br>Recipe</button>
+                </form>
+              <% } %>
+            </td>              
+          </tr>
+        <% }); %>
+        <% recipes.forEach(function(r) { %>
+          <tr>
+            <td><%= r.name %></td>
+            <td><a href="/recipes/<%= r.id %>"> SHOW RECIPE</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Recipes Yet</h5>
+<% } %>
   
 <%- include('../partials/footer') %>
