@@ -6,18 +6,12 @@
         <tr>
           <th>Recipe Name:</th>
           <th>Posted By:</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
         <% recipes.forEach(function(r) { %>
           <tr>
             <td><a href="/recipes/<%= r.id %>"><%= r.name %></a></td>
-          </tr>
-        <% }); %>
-        <% let total = 0 %>
-        <% recipes.forEach(function(r) { %>
-          <tr>
             <td class="recipe-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer">
               <%= r.userName %>
               <% if (user && user._id.equals(r.user)) { %>

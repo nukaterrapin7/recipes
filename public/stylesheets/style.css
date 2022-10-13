@@ -4,14 +4,40 @@
   background-color: rgba(0,0,0,0.25);
 } */
 
-body {
+/* ../images/kitchen.jpeg */
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  height: 100vh; 
-  /* background-image: url('../images/kitchen.jpeg');  */
-  background-size: cover;
 }
 
-.body::before {
+body {
+  height: 100vh;
+   
+  
+}
+
+main {
+  position: relative;
+  background-image: url('../images/kitchen.jpeg');
+  height: 100%;  
+  margin: -1px auto;
+  background-size: cover; 
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* .body::before {
   content: "";
   position: absolute;
   top: 0px;
@@ -19,15 +45,32 @@ body {
   bottom: 0px;
   left: 0px;
   background-color: rgba(0,0,0,0.25);
-}
+  z-index: 2;
+} */
 
-main {
+/* main {
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px; 
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+#show-page {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 50vh;
+}
+
+#show-page .instructions {
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  width: 100vw;
+  margin: 10px 0;
 }
 
 nav {  
@@ -96,7 +139,7 @@ table td {
   /* background-color: #B8C0C2; */
   padding: 4px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 24px;
   color: red
 }
 
@@ -115,14 +158,14 @@ table td {
   grid-template-columns: auto auto;
 }
 
-.comment-user {
+.comment-user, .recipe-user {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 17px;
 }
 
-.comment-user img {
+.comment-user img, .recipe-user img {
   border-radius: 50%;
   height: 20px;
 }

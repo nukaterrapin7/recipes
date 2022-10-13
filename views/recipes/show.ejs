@@ -2,12 +2,26 @@
 
 <!-- <div class="container black-box"> -->
   <section id="show-page">
+    <div class="recipe">
       <div>Recipe:</div>
       <div><%= recipe.name %></div>
-      <div>Ingredients: </div>
-      <div><%= recipe.ingredients %></div>
-      <div>Directions: </div>
-      <div><%= recipe.directions %></div>
+    </div>
+    <div class="instructions">
+      <div>Ingredients: 
+      <ul>
+        <li>
+          <%= recipe.ingredients %>
+        </li>
+      </ul>
+    </div>
+      <div>Directions: 
+      <ul>
+        <li>
+          <%= recipe.directions %>
+        </li>
+      </ul>
+    </div>
+    </div>
   </section>
 
   <% if(user) { %>
@@ -17,11 +31,11 @@
           <textarea name="content"></textarea>
           <label>Rating:</label>
           <select name="rating">
-            <option value="1">★</option>
-            <option value="2">★★</option>
-            <option value="3">★★★</option>
-            <option value="4">★★★★</option>
-            <option value="5">★★★★★</option>
+            <option value="&#11088">★</option>
+            <option value="&#11088&#11088">★★</option>
+            <option value="&#11088&#11088&#11088">★★★</option>
+            <option value="&#11088&#11088&#11088&#11088">★★★★</option>
+            <option value="&#11088&#11088&#11088&#11088&#11088">★★★★★</option>
           </select>
           <input type="submit" value="Add Comment">
         </form>
