@@ -1,64 +1,62 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-    <div>Recipe:</div>
-    <div><%= recipe.name %></div>
-    <div>Ingredients: </div>
-    <div><%= recipe.ingredients %></div>
-    <div>Directions: </div>
-    <div><%= recipe.directions %></div>
-</section>
+<!-- <div class="container black-box"> -->
+  <section id="show-page">
+      <div>Recipe:</div>
+      <div><%= recipe.name %></div>
+      <div>Ingredients: </div>
+      <div><%= recipe.ingredients %></div>
+      <div>Directions: </div>
+      <div><%= recipe.directions %></div>
+  </section>
 
-<% if(user) { %>
-    <form id="a-comment" method="POST" action="/recipes/<%= recipe._id %>/comments">
-        <label>Comment:</label>
-        <textarea name="content"></textarea>
-        <label>Rating:</label>
-        <select name="rating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <input type="submit" value="Add Comment">
-      </form>
-<% } %>
+  <% if(user) { %>
+      <div id="new comment">
+        <form id="a-comment" method="POST" action="/recipes/<%= recipe._id %>/comments">
+          <label>Comment:</label>
+          <textarea name="content"></textarea>
+          <label>Rating:</label>
+          <select name="rating">
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+          </select>
+          <input type="submit" value="Add Comment">
+        </form>
+      </div>
+  <% } %>
 
-<% if (recipe.comments.length) { %>
-    <table>
-        <thead>
-          <tr> 
-            <th>User</th>
-            <th>Comment</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% let total = 0 %>
-          <% recipe.comments.forEach(function(c) { %>
-            <tr>
-              <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
-                <% if (user && user._id.equals(c.user)) { %>
-                  <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete <br>Comment</button>
-                  </form>
-                <% } %>
-              </td>              
-              <td><%= c.content %></td>
-              <td><%= c.rating %></td>
+  <% if (recipe.comments.length) { %>
+      <table>
+          <thead>
+            <tr> 
+              <th>User</th>
+              <th>Comment</th>
+              <th>Rating</th>
             </tr>
-          <% }); %>
-        </tbody>
-      </table>
-    <% } else { %>
-      <h5>No Comments Yet</h5>
-<% } %>
-
-
-
-
-
-
+          </thead>
+          <tbody>
+            <% let total = 0 %>
+            <% recipe.comments.forEach(function(c) { %>
+              <tr>
+                <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
+                  <% if (user && user._id.equals(c.user)) { %>
+                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                      <button type="submit">Delete <br>Comment</button>
+                    </form>
+                  <% } %>
+                </td>              
+                <td><%= c.content %></td>
+                <td><%= c.rating %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Comments Yet</h5>
+  <% } %>
+<!-- </div> -->
 
 <%- include('../partials/footer') %>

@@ -11,12 +11,10 @@ const commentSchema = new Schema({
 });
 
 const recipeSchema = new Schema({
-    name: {type: String, requires: true},
+    name: {type: String, required: true},
     ingredients: [],
     directions: [],
     comments: [commentSchema]
-}, {
-    timestamps: true
 });
 
 module.exports = mongoose.model('Recipe', recipeSchema);

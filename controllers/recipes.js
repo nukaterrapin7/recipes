@@ -18,6 +18,9 @@ function newRecipe(req, res) {
 };
 
 function create(req, res) {
+    req.body.user = req.user._id
+    req.body.userName = req.user.name
+    req.body.userAvatar = req.user.avatar
     req.body.ingredients = req.body.ingredients.trim();
     req.body.directions = req.body.directions.trim();
     if(req.body.ingredients) req.body.ingredients = req.body.ingredients.split(/\s*, \s*/);
