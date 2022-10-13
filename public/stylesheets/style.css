@@ -1,20 +1,16 @@
-
-/* .black-box {
-  color: black;
-  background-color: rgba(0,0,0,0.25);
-} */
-
-/* ../images/kitchen.jpeg */
-
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
+.splash {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
 body {
   height: 100vh;
-   
-  
 }
 
 main {
@@ -37,38 +33,24 @@ main {
   backdrop-filter: blur(6px);
 }
 
-/* .body::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-color: rgba(0,0,0,0.25);
-  z-index: 2;
-} */
-
-/* main {
-  grid-area: main;
+#title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px; 
-  font-family: Arial, Helvetica, sans-serif;
-} */
+  justify-content: center;
+  color: yellow;
+  padding: 10px 10px;
+}
 
 #show-page {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   height: 50vh;
+  color: silver;
 }
 
 #show-page .instructions {
   display: flex;
   justify-content: space-around;
-  /* align-items: center; */
   width: 100vw;
   margin: 10px 0;
 }
@@ -99,6 +81,7 @@ a:hover:not(.active) {
 
 span {
   padding: 0 10px;
+  color: silver;
 }
 
 #new-form {
@@ -118,11 +101,6 @@ span {
   width: 10rem;
   align-items: center;
 }
-
-/* table {
-  font-size: 14px;
-  color: black;
-} */
 
 table thead th {
   padding: 5px;
@@ -147,11 +125,32 @@ table td {
   background-color: white;
 }
 
-/* #show-page {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-} */
+#show-comments {
+  color: blue;
+  background-color: silver;
+  background-image: url('../images/food-background.jpeg');
+  height: 100vh;
+  background-repeat:repeat-y;
+}
+
+#comment-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: silver;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+#comment-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: silver;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
 
 #new-comment {
   display: grid;
@@ -160,7 +159,7 @@ table td {
 
 .comment-user, .recipe-user {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   font-size: 17px;
 }

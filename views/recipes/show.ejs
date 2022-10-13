@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<!-- <div class="container black-box"> -->
+<h1 id="title"><%= title %></h1>
+
   <section id="show-page">
     <div class="recipe">
       <div>Recipe:</div>
@@ -8,69 +9,72 @@
     </div>
     <div class="instructions">
       <div>Ingredients: 
-      <ul>
-        <li>
-          <%= recipe.ingredients %>
-        </li>
-      </ul>
+        <ul>
+          <li>
+            <%= recipe.ingredients %>
+          </li>
+        </ul>
     </div>
       <div>Directions: 
-      <ul>
-        <li>
-          <%= recipe.directions %>
-        </li>
-      </ul>
+        <ul>
+          <li>
+            <%= recipe.directions %>
+          </li>
+        </ul>
     </div>
     </div>
   </section>
-
-  <% if(user) { %>
-      <div id="new comment">
-        <form id="a-comment" method="POST" action="/recipes/<%= recipe._id %>/comments">
-          <label>Comment:</label>
-          <textarea name="content"></textarea>
-          <label>Rating:</label>
-          <select name="rating">
-            <option value="&#11088">★</option>
-            <option value="&#11088&#11088">★★</option>
-            <option value="&#11088&#11088&#11088">★★★</option>
-            <option value="&#11088&#11088&#11088&#11088">★★★★</option>
-            <option value="&#11088&#11088&#11088&#11088&#11088">★★★★★</option>
-          </select>
-          <input type="submit" value="Add Comment">
-        </form>
-      </div>
-  <% } %>
-
-  <% if (recipe.comments.length) { %>
-      <table>
-          <thead>
-            <tr> 
-              <th>User</th>
-              <th>Comment</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% let total = 0 %>
-            <% recipe.comments.forEach(function(c) { %>
-              <tr>
-                <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
-                  <% if (user && user._id.equals(c.user)) { %>
-                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                      <button type="submit">Delete <br>Comment</button>
-                    </form>
-                  <% } %>
-                </td>              
-                <td><%= c.content %></td>
-                <td><%= c.rating %></td>
-              </tr>
-            <% }); %>
-          </tbody>
-        </table>
-      <% } else { %>
-        <h5>No Comments Yet</h5>
-  <% } %>
-<!-- </div> -->
+  <section id="show-comments">
+    <div id="comment-field">
+      <% if(user) { %>
+          <div id="new comment">
+            <form id="a-comment" method="POST" action="/recipes/<%= recipe._id %>/comments">
+              <label>Comment:</label>
+              <textarea name="content"></textarea>
+              <label>Rating:</label>
+              <select name="rating">
+                <option value="&#11088">★</option>
+                <option value="&#11088&#11088">★★</option>
+                <option value="&#11088&#11088&#11088">★★★</option>
+                <option value="&#11088&#11088&#11088&#11088">★★★★</option>
+                <option value="&#11088&#11088&#11088&#11088&#11088">★★★★★</option>
+              </select>
+              <input type="submit" value="Add Comment">
+            </form>
+          </div>
+      <% } %>
+    </div>
+    <div id="comment-list">
+      <% if (recipe.comments.length) { %>
+          <table>
+              <thead>
+                <tr> 
+                  <th>User</th>
+                  <th>Comment</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% let total = 0 %>
+                <% recipe.comments.forEach(function(c) { %>
+                  <tr>
+                    <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>
+                      <% if (user && user._id.equals(c.user)) { %>
+                        <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                          <button type="submit">Delete <br>Comment</button>
+                        </form>
+                      <% } %>
+                    </td>              
+                    <td><%= c.content %></td>
+                    <td><%= c.rating %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          <% } else { %>
+            <h5>No Comments Yet</h5>
+      <% } %>
+    </div>
+  </section>
 
 <%- include('../partials/footer') %>
