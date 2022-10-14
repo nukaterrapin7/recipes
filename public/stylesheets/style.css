@@ -9,20 +9,57 @@
 }
 
 #line-1 {
-  color: blue;
+  color: rgba(70, 18, 101, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 250px;
+  font-size: 20px;
+  font-family: copperplate,sans-serif;
+  background-color: silver;
+  margin-bottom: auto;
 }
 
 #line-2 {
   color: silver;
-  font-family: fantasy;
-  font-size: 20px;
+  font-family: papyrus,sans-serif;
+  font-size: 30px;
+  margin-top: 300px;
+  margin-bottom: auto;
+  padding-top: 10px;
+  background-color: rgba(70, 18, 101, 1);
 }
 
 #line-3 {
+  margin-top: 400px;
+  font-size: 20px;
+  font-family: copperplate,sans-serif;
+  color: rgba(70, 18, 101, 1);
+  background-color: silver;
+}
 
+nav {  
+  padding: 0 20px 0 30px;  
+  height: 50px;  
+  background-color: rgba(70, 18, 101, 1);
+}
+
+#nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#nav-right, #nav-left, a:visited  {
+  color: silver;
+  padding: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: papyrus,sans-serif;
+}
+
+a:hover:not(.active) {
+  background-color: red;
 }
 
 body {
@@ -52,7 +89,8 @@ main {
 #title {
   display: flex;
   justify-content: center;
-  color: yellow;
+  color: red;
+  font-family: papyrus,sans-serif;
   padding: 10px 10px;
 }
 
@@ -62,6 +100,7 @@ main {
   align-items: center;
   height: 50vh;
   color: silver;
+  font-family: copperplate,sans-serif;
 }
 
 #show-page .instructions {
@@ -71,51 +110,46 @@ main {
   margin: 10px 0;
 }
 
-nav {  
-  padding: 0 20px 0 30px;  
-  height: 50px;  
-  background-color: rgba(70, 18, 101, 1);
-}
-
-#nav-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#nav-right, #nav-left, a:visited  {
-  color: silver;
-  padding: 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-family: fantasy;
-}
-
-a:hover:not(.active) {
-  background-color: red;
-}
-
 span {
   padding: 0 10px;
   color: silver;
+  font-family: papyrus,sans-serif;
 }
 
-#new-form {
+#new-form, #edit-form {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
+  justify-content: center;
+  align-items: center;
+  color: silver;
+  font-family: copperplate,sans-serif;
+  background-color: rgba(70, 18, 101, .6);
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 20vh;
 }
 
-#new-form *{
+#new-form *, #edit-form *{
   font-size: 20px;
+  flex-wrap: wrap;
   padding: 5px;
   border-radius: 5px;
 }
 
-#new-form input[type="submit"] {
+#new-form input [type="submit"] {
   grid-column: span 2;
-  width: 10rem;
+  height: 2rem;
   align-items: center;
+  justify-content: center;
+}
+
+#edit-form [type="submit"] {
+  grid-column: span 2;
+  height: 2rem;
+  width: 225px;
+  align-items: center;
+  justify-content: center;
 }
 
 table thead th {
@@ -128,25 +162,41 @@ table td {
   text-align: left;
 }
 
-#list a {
-  border-radius: 4px;
-  /* background-color: #B8C0C2; */
-  padding: 4px;
-  text-decoration: none;
-  font-size: 24px;
-  color: red
+#list, #show-page{ 
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+  color: silver;
+  font-family: copperplate,sans-serif;
+  background-color: rgba(70, 18, 101, .6);
 }
 
 #list a:hover {
-  background-color: white;
+  background-color: red;
+}
+
+#edit-button {
+  font-size: 14px;
+  background-color: silver;
+  color: black;
+  padding: 0 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  display: flex;
+  width: 57px;
 }
 
 #show-comments {
   color: blue;
+  font-family: copperplate,sans-serif;
+  font-size: 18px;
   background-color: silver;
   background-image: url('../images/food-background.jpeg');
   height: 100vh;
   background-repeat:repeat-y;
+  background-size: cover;
 }
 
 #comment-field {
@@ -175,7 +225,6 @@ table td {
 
 .comment-user, .recipe-user {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   font-size: 17px;
 }

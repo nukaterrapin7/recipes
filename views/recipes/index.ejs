@@ -5,29 +5,28 @@
 <% if (recipes.length) { %>
   <table id="list">
     <thead>
+      <tr>
+        <th>Recipe Name:</th>
+        <th>Posted By:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% recipes.forEach(function(r) { %>
         <tr>
-          <th>Recipe Name:</th>
-          <th>Posted By:</th>
+          <td><a href="/recipes/<%= r.id %>"><%= r.name %></a></td>
+          <td class="recipe-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer">
+            <%= r.userName %>
+            <% if (user && user._id.equals(r.user)) { %>
+              <form id="delete-button" action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete <br>Recipe</button>
+                <a id="edit-button" href="/recipes/<%= r._id %>/edit">Edit <br>Recipe</a>
+              </form>  
+            <% } %>
+          </td>              
         </tr>
-      </thead>
-      <tbody>
-        <% recipes.forEach(function(r) { %>
-          <tr>
-            <td><a href="/recipes/<%= r.id %>"><%= r.name %></a></td>
-            <td class="recipe-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer">
-              <%= r.userName %>
-              <% if (user && user._id.equals(r.user)) { %>
-                <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
-                  <button type="submit">Delete <br>Recipe</button>
-                  <a href="/recipes/<%= r._id %>/edit">Edit Recipe</a>
-                </form>  
-              <% } %>
-            </td>              
-          </tr>
-        <% }); %>
-        
-      </tbody>
-    </table>
+      <% }); %>
+    </tbody>
+  </table>
   <% } else { %>
     <h5>No Recipes Yet</h5>
 <% } %>
