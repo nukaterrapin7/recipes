@@ -10,7 +10,7 @@ Technologies used:
     CSS
 
 Find the application here:
-https://recipes-788r.onrender.com/recipes/63487bf5ff6e80bcb3d44f5a
+https://recipes-788r.onrender.com
 
 Planned additions to the application include:
     -A search function to look for specific recipes.
