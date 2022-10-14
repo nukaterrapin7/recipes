@@ -6,7 +6,23 @@
 .splash {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+}
+
+#line-1 {
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#line-2 {
+  color: silver;
+  font-family: fantasy;
+  font-size: 20px;
+}
+
+#line-3 {
+
 }
 
 body {

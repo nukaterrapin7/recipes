@@ -12,5 +12,7 @@ router.get('/new', isLoggedIn, recipesCtrl.new);
 router.post('/', isLoggedIn, recipesCtrl.create);
 router.get('/:id', isLoggedIn, recipesCtrl.show);
 router.delete('/:id', isLoggedIn, recipesCtrl.delete);
+router.get('/:id/edit', isLoggedIn, recipesCtrl.edit);
+router.put('/:id', isLoggedIn, recipesCtrl.update);
 
 module.exports = router;

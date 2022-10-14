@@ -12,8 +12,8 @@ const commentSchema = new Schema({
 
 const recipeSchema = new Schema({
     name: {type: String, required: true},
-    ingredients: [],
-    directions: [],
+    ingredients: [{type: String}],
+    directions: [{type: String}],
     comments: [commentSchema],
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
     userName: String,

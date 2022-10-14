@@ -6,6 +6,23 @@ module.exports = {
     create,
     show,
     delete: deleteRecipe,
+    edit,
+    update
+};
+
+function edit(req, res) {
+    Recipe.findById(req.params.id, function (err, recipe) {
+        res.render('recipes/edit', {recipe})
+    })
+};
+
+function update(req, res) {
+    Recipe.findByIdAndUpdate(req.params.id, req.body,
+        {new: true},
+        function(err, recipe) {
+            if (err || !recipe) return res.redirect('/recipes');
+            res.redirect(`/recipes/${req.params.id}`)
+        });
 };
 
 function index(req, res) {
@@ -47,3 +64,4 @@ function deleteRecipe(req, res) {
         })
 	})
 };
+
