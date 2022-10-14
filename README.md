@@ -22,6 +22,6 @@ Planned additions to the application include:
 
 Screenshots:
 
-url('../images/screenshot-1.jpeg')
-url('../images/screenshot-2.jpeg')
-url('../images/screenshot-3.jpeg')
+![](public/images/screenshot-1.png)
+![](public/images/screenshot-2.png)
+![](public/images/screenshot-3.png)
